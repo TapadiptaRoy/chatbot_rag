@@ -1,0 +1,6 @@
+Flask
+voyageai
+chromadb
+anthropic
+pypdf
+docx2txt
