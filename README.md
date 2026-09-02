@@ -88,4 +88,4 @@ Open `http://localhost:5000`.
 
 - PDF extraction has no OCR — scanned/image-only PDFs won't extract text.
 - Single shared knowledge base — no user accounts or multi-tenancy.
-- No conversation history — each question is answered independently.
+- No conversation history — each question is answered independently
