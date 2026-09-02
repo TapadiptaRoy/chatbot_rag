@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stacks — Personal Knowledge Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=Spectral+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="library">
+
+  <aside class="drawer">
+    <div class="drawer-head">
+      <h1>Stacks</h1>
+      <p class="tagline">Your notes, indexed and searchable.</p>
+    </div>
+
+    <form id="upload-form" class="upload-slot">
+      <label for="file-input" class="upload-label">
+        <span class="upload-plus">+</span>
+        <span>Add a document</span>
+        <span class="upload-hint">PDF, DOCX, TXT, or MD</span>
+      </label>
+      <input type="file" id="file-input" name="file" accept=".pdf,.docx,.txt,.md" hidden>
+    </form>
+    <div id="upload-status" class="upload-status"></div>
+
+    <div class="catalog">
+      <div class="catalog-head">
+        <span>Catalog</span>
+        <span id="doc-count" class="doc-count">0</span>
+      </div>
+      <ul id="doc-list" class="doc-list">
+        <li class="doc-empty">Nothing indexed yet.</li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="reading-room">
+    <div class="page-header">
+      <h2>Ask your library</h2>
+    </div>
+
+    <div id="conversation" class="conversation">
+      <div class="empty-state">
+        <p>Add a few documents, then ask a question in plain language.<br>Answers are grounded in what you've uploaded — nothing else.</p>
+      </div>
+    </div>
+
+    <form id="query-form" class="query-form">
+      <textarea id="question-input" placeholder="What do my notes say about…" rows="1" required></textarea>
+      <button type="submit" id="ask-button">Ask</button>
+    </form>
+  </main>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

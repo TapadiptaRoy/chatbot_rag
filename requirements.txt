@@ -4,3 +4,4 @@ chromadb
 anthropic
 pypdf
 docx2txt
+gunicorn
