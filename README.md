@@ -91,3 +91,6 @@ Open `http://localhost:5000`.
 - PDF extraction has no OCR — scanned/image-only PDFs won't extract text.
 - No user accounts: each visitor gets an anonymous, cookie-based private workspace. Clearing cookies or switching devices starts a fresh one.
 - No conversation history — each question is answered independently
+
+
+Developed and tested on Python 3.12

@@ -1,0 +1,1208 @@
+{
+  "config": {
+    "label": "baseline",
+    "chunk_size": 800,
+    "overlap": 120,
+    "max_k": 10,
+    "n_chunks": 584,
+    "embedding_model": "voyage-4-large",
+    "timestamp": "20261113_204143"
+  },
+  "summary": {
+    "n_answerable": 56,
+    "n_unanswerable": 8,
+    "hit_at": {
+      "1": 0.7857,
+      "3": 0.9821,
+      "5": 1.0,
+      "10": 1.0
+    },
+    "doc_hit_at_5": 1.0,
+    "mrr": 0.8786,
+    "mean_top1_score_answerable": 0.6147,
+    "mean_top1_score_unanswerable": 0.4017,
+    "latency_mean_s": 0.682,
+    "latency_median_s": 0.679,
+    "latency_p95_s": 0.706,
+    "by_category": {
+      "conceptual": {
+        "n": 16,
+        "hit_at_1": 0.625,
+        "hit_at_5": 1.0,
+        "mrr": 0.7729
+      },
+      "cross_doc": {
+        "n": 5,
+        "hit_at_1": 0.6,
+        "hit_at_5": 1.0,
+        "mrr": 0.8
+      },
+      "lookup": {
+        "n": 25,
+        "hit_at_1": 0.88,
+        "hit_at_5": 1.0,
+        "mrr": 0.94
+      },
+      "paraphrase": {
+        "n": 10,
+        "hit_at_1": 0.9,
+        "hit_at_5": 1.0,
+        "mrr": 0.9333
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": 1,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why does the Flask constructor need __name__ passed to it?",
+      "latency_s": 0.68,
+      "top1_score": 0.5457,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "hon installation), install Flask via pip, and write a minimal app.py — this is a very common opening interview exercise. python3 -m venv venv source venv/bin/ac",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 2,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What error do I get if I use the request object outside an active context?",
+      "latency_s": 0.726,
+      "top1_score": 0.5112,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "requests?' Q: What happens if you try to access 'request' or 'g' outside of an active request/application context (e.g. accidentally at the top level of a modul",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 3,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why does a route defined without a trailing slash return 404 when visited with one?",
+      "latency_s": 0.691,
+      "top1_score": 0.61,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "D without manually pushing a context yourself. Fix: wrap the relevant code in 'with app.app_context():' (see Section 2). Q: Why does my route defined WITHOUT a ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 4,
+      "category": "lookup",
+      "answerable": true,
+      "question": "How do I reference a view that lives inside a Blueprint when calling url_for?",
+      "latency_s": 0.711,
+      "top1_score": 0.6432,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "inja2 syntax is ONLY evaluated when a file goes through Flask's template rendering pipeline, not when it's served as-is. Q: Why does my Blueprint's url_for() ca",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 5,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why do Flask extensions use init_app instead of taking the app directly?",
+      "latency_s": 0.685,
+      "top1_score": 0.5852,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "e), CORS handling (Flask-CORS), rate limiting (Flask-Limiter), authentication helpers (Flask-Login, Flask-JWT-Extended). Most follow a common pattern: create an",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 6,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "My template shows curly braces literally instead of the variable's value. What went wrong?",
+      "latency_s": 0.691,
+      "top1_score": 0.526,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "s like Flask's 'g' or locally-created variables inside the function body, not for module-level state or mutable default arguments). Q: Why does my template vari",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 7,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "Why do I need a migration tool when my ORM can already create tables?",
+      "latency_s": 0.689,
+      "top1_score": 0.5629,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "t has no concept of INCREMENTAL, VERSIONED changes — it won't safely alter an EXISTING table if you change a model (e.g. add a column) without losing data, and ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 8,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Where does Flask keep session data by default, and can the user tamper with it?",
+      "latency_s": 0.683,
+      "top1_score": 0.6499,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ion behaves like a dictionary you can read/write per-user data into across requests (e.g. session['user_id'] = user.id). By default, Flask stores session data C",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 9,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "What is the difference between async and defer on a script tag?",
+      "latency_s": 0.68,
+      "top1_score": 0.6407,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "executes — a script in the <head> with no special attribute can noticeably delay when the user sees any content at all. Modern approach: use 'defer' (script dow",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 10,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What should the alt attribute be for a purely decorative image?",
+      "latency_s": 0.681,
+      "top1_score": 0.5451,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "d aloud by screen readers, displayed if the image fails to load, and used by search engines to understand image content. It should describe the image's CONTENT/",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 11,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What's the difference between disabled and readonly on a form field?",
+      "latency_s": 0.679,
+      "top1_score": 0.6477,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ays required for security/data-integrity, with client-side validation serving purely as a UX nicety for faster feedback. <input type=\"text\" required minlength=\"",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 12,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What is tabnabbing and which rel values prevent it?",
+      "latency_s": 0.673,
+      "top1_score": 0.5849,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "internal links since they keep working across environments (localhost, staging, production) without hardcoding a domain. Q: What does target=\"_blank\" do, and wh",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 13,
+      "category": "cross_doc",
+      "answerable": true,
+      "question": "Why should every img have width and height set?",
+      "latency_s": 0.685,
+      "top1_score": 0.5959,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ing 'why use semantic elements' — using a real <button> from the start means you get correct keyboard behavior for free. Q: Why is my image causing layout shift",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 14,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "My custom clickable box can't be activated with the keyboard. Why, and what does a real button give me for free?",
+      "latency_s": 0.695,
+      "top1_score": 0.6092,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ractice: put <link rel=\"stylesheet\"> in <head> so styles are ready before the browser paints content, rather than after. Q: Why doesn't clicking my custom-style",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 15,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Does the meta description improve search ranking directly?",
+      "latency_s": 0.69,
+      "top1_score": 0.6339,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ch engines often display it verbatim as the snippet under the title in results — a compelling, accurate description can meaningfully improve how many people cli",
+      "first_doc_rank": 1,
+      "first_hit_rank": 3
+    },
+    {
+      "id": 16,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What happens on mobile if the viewport meta tag is missing?",
+      "latency_s": 0.677,
+      "top1_score": 0.6597,
+      "top_sources": [
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "linked CSS files. <link rel=\"icon\"> — favicon. <script> tags (though these can also go at the end of <body>, see below). Q: What happens if you forget the viewp",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 17,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Can a Client Component render a Server Component, and how do you get around the restriction?",
+      "latency_s": 0.687,
+      "top1_score": 0.6495,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ent directly — this is the normal, common case (a mostly-static server-rendered page with one small interactive island). A Client Component CANNOT directly impo",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 18,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What's the difference between layout.tsx and template.tsx?",
+      "latency_s": 0.704,
+      "top1_score": 0.4983,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "image optimization: resizing, modern formats, lazy loading, and layout-shift prevention, compared to a plain <img> tag. Next.js Interview Prep - Full Stack (Ent",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 19,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What does the NEXT_PUBLIC_ prefix do to an environment variable?",
+      "latency_s": 0.676,
+      "top1_score": 0.5625,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": ": Environment variables are read from .env.local (and other .env variants) via process.env, similar to a plain Node app. By default, environment variables are O",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 20,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "My page shows stale data even though the database changed. What should I check?",
+      "latency_s": 0.673,
+      "top1_score": 0.5968,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "t', and keep everything else, including the page/layout that renders it, as a Server Component passing children through. Q: Why does my fetched data look stale ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 21,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "How can a CMS publish trigger an immediate page refresh without waiting for a timer?",
+      "latency_s": 0.679,
+      "top1_score": 0.4368,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "based ISR? A: Time-based ISR revalidates on a fixed schedule regardless of whether the underlying data actually changed. On-demand revalidation lets you trigger",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 22,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What does [[...slug]] match that [...slug] does not?",
+      "latency_s": 0.673,
+      "top1_score": 0.5737,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "/blog/hello/world does not match). [...slug] (catch-all) matches one OR MORE segments, capturing them as an array (e.g. /blog/a/b/c gives slug = ['a','b','c']) ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 23,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "If several components fetch the same URL during one render, how many requests are made?",
+      "latency_s": 0.683,
+      "top1_score": 0.5767,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "en switching between Pages Router habits and the App Router, or when following outdated tutorials/StackOverflow answers. Q: Why is my Server Component re-fetchi",
+      "first_doc_rank": 1,
+      "first_hit_rank": 3
+    },
+    {
+      "id": 24,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why can't I pass a regular callback function from a Server Component to a Client Component?",
+      "latency_s": 0.674,
+      "top1_score": 0.6974,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ion of Server Actions marked 'use server', which Next.js handles specially by creating a reference the client can call). If you're trying to pass a regular call",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 25,
+      "category": "cross_doc",
+      "answerable": true,
+      "question": "How do I use a Context provider without turning the whole app into a client tree?",
+      "latency_s": 0.679,
+      "top1_score": 0.594,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ent Component boundary down to just the small piece (or a dedicated Providers wrapper component) that actually needs it. Q: How do you use React Context in the ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 26,
+      "category": "cross_doc",
+      "answerable": true,
+      "question": "Where does Next.js middleware run and how many middleware files are there?",
+      "latency_s": 0.706,
+      "top1_score": 0.5918,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "request is completed — before a page/route is matched and rendered — for requests matching a configured matcher pattern. Common uses: authentication/authorizati",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 27,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why does calling setCount(count + 1) twice in a row only increment by one?",
+      "latency_s": 0.684,
+      "top1_score": 0.6833,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "things: it schedules the new value to be used on the NEXT render, and it tells React this component needs to re-render. It does NOT mutate the variable in place",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 28,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why is using the array index as a key a problem when a list can change?",
+      "latency_s": 0.697,
+      "top1_score": 0.5893,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "atch items across renders instead of comparing them purely by position — this is why stable, unique keys matter so much. Q: What are 'keys' in React lists, and ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 29,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What goes wrong with {count && <Component />} when count is 0?",
+      "latency_s": 0.679,
+      "top1_score": 0.6706,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "e the return statement (or early return) for larger blocks. 2) Ternary operator condition ? <A /> : <B /> inline in JSX. 3) Logical && operator: condition && <A",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 30,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What's the difference between useEffect and useLayoutEffect timing?",
+      "latency_s": 0.678,
+      "top1_score": 0.6138,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "nent unmounts — used to cancel subscriptions, clear timers, or abort fetches, preventing memory leaks and stale updates. useEffect(() => { const id = setInterva",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 31,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "Why did my useEffect run in an infinite loop?",
+      "latency_s": 0.677,
+      "top1_score": 0.6734,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "onditional rendering — see the full example in Section 9. React.js Interview Prep - Full Stack (Entry Level) Page 26 13. Common Gotchas & Mistakes (Great for 'W",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 32,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why is todos.push(newTodo); setTodos(todos) wrong but setTodos([...todos, newTodo]) correct?",
+      "latency_s": 0.684,
+      "top1_score": 0.7455,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "Add</button> <ul> {todos.map(t => ( <li key={t.id} style={{ textDecoration: t.done ? 'line-through' : 'none' }}> <input type=\"checkbox\" checked={t.done} onChang",
+      "first_doc_rank": 1,
+      "first_hit_rank": 5
+    },
+    {
+      "id": 33,
+      "category": "lookup",
+      "answerable": true,
+      "question": "How is useCallback different from useMemo?",
+      "latency_s": 0.685,
+      "top1_score": 0.678,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "the memoization overhead itself can cost more than the computation you're avoiding. Use it deliberately, not by default. const sortedList = useMemo(() => expens",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 34,
+      "category": "lookup",
+      "answerable": true,
+      "question": "How do you create an Error Boundary and what can't it catch?",
+      "latency_s": 0.673,
+      "top1_score": 0.6158,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "e the parent manages shared state internally. You'll see this a lot in component libraries like Radix UI or Headless UI. Q: What is an Error Boundary, and how d",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 35,
+      "category": "cross_doc",
+      "answerable": true,
+      "question": "What is a hydration mismatch and what usually causes one?",
+      "latency_s": 0.676,
+      "top1_score": 0.5413,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "dered HTML already present in the DOM, making it interactive, instead of throwing it away and re-rendering from scratch. A mismatch happens when the HTML genera",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 36,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "How do you avoid a race condition when a component re-fetches based on changing props?",
+      "latency_s": 0.666,
+      "top1_score": 0.5943,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ort(); }, []); if (loading) return <Spinner />; if (error) return <p>Error: {error}</p>; return <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>; } Q: Wh",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 37,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "Why doesn't z-index: 9999 bring my element in front of another one?",
+      "latency_s": 0.676,
+      "top1_score": 0.6427,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ing (or the reverse if flex-direction is column). This is one of the single most common Flexbox mix-ups (see Section 4). Q: Why does my z-index: 9999 still not ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 38,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why doesn't justify-content: center center my flex items vertically?",
+      "latency_s": 0.687,
+      "top1_score": 0.6435,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "o the viewport) for the nearest positioned ancestor. Fix: add position: relative to the intended parent (see Section 3). Q: Why does my flex container's justify",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 39,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why don't Tailwind classes built with string concatenation like bg-${color}-500 work?",
+      "latency_s": 0.715,
+      "top1_score": 0.7072,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ndex further (see Section 3). Q: Why do my Tailwind classes that I generated dynamically with string concatenation (e.g. `bg-${color}-500`) not work? A: Tailwin",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 40,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why is rem preferred over px for font sizes?",
+      "latency_s": 0.671,
+      "top1_score": 0.6727,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "full-bleed/viewport-relative sizing (e.g. a hero section that's always exactly the height of the screen: height: 100vh). Q: Why is rem generally preferred over ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 41,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why are transform and opacity the best properties to animate?",
+      "latency_s": 0.67,
+      "top1_score": 0.6379,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "tor thread, without triggering the browser's more expensive 'layout' (recalculating positions/sizes of potentially many elements) or 'paint' (redrawing pixel co",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 42,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What is margin collapsing?",
+      "latency_s": 0.673,
+      "top1_score": 0.6153,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "; } Q: What is margin collapsing, and when does it happen? A: When two block-level elements' vertical margins meet (e.g. the bottom margin of one element and th",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 43,
+      "category": "lookup",
+      "answerable": true,
+      "question": "How does Tailwind handle responsive breakpoints?",
+      "latency_s": 0.673,
+      "top1_score": 0.665,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "S. Default breakpoints: sm = 640px, md = 768px, lg = 1024px, xl = 1280px, 2xl = 1536px (all customizable in the config). <!-- Single column on mobile, becomes a",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 44,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why was :focus-visible added when :focus already existed?",
+      "latency_s": 0.68,
+      "top1_score": 0.6216,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf",
+        "HTML_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "or SHOULD be shown — typically when navigating via keyboard, but generally NOT when a mouse click gave an element focus. This solves a real, common design compl",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 45,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "My absolutely positioned child is placed relative to the whole page instead of its parent. Why?",
+      "latency_s": 0.683,
+      "top1_score": 0.6802,
+      "top_sources": [
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "nly relative, but absolute/fixed/sticky also qualify) — this ancestor is its 'positioning context' / 'containing block'. If NO ancestor has a non-static positio",
+      "first_doc_rank": 1,
+      "first_hit_rank": 3
+    },
+    {
+      "id": 46,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Is Node.js really single-threaded?",
+      "latency_s": 0.663,
+      "top1_score": 0.6057,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "loads like typical CRUD APIs. Q: Is Node.js single-threaded? Explain precisely, because this is a common trick question. A: Node's JavaScript execution happens ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 47,
+      "category": "lookup",
+      "answerable": true,
+      "question": "In what order do process.nextTick, promise callbacks, setTimeout and setImmediate run?",
+      "latency_s": 0.699,
+      "top1_score": 0.6525,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "erstanding that microtasks run BETWEEN every phase/callback, not just once per loop, is the detail that trips people up. Q: What is the difference between proce",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 48,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why is req.body undefined even though the client sends JSON?",
+      "latency_s": 0.68,
+      "top1_score": 0.6177,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "xpress.urlencoded(), and express.static(). Third-party middleware — npm packages like cors, helmet, morgan, compression. Q: What does express.json() do, and wha",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 49,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "Why aren't errors thrown in an async route handler caught by Express 4?",
+      "latency_s": 0.673,
+      "top1_score": 0.6435,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "and earlier, Express's routing layer wasn't built to await promises — if an async route handler's promise rejects (e.g. an awaited call throws), Express doesn't",
+      "first_doc_rank": 1,
+      "first_hit_rank": 2
+    },
+    {
+      "id": 50,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "My route handler hangs forever with no response and no error. What's the usual cause?",
+      "latency_s": 0.673,
+      "top1_score": 0.5688,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "& Express.js Interview Prep - Full Stack (Entry Level) Page 29 Node.js & Express.js Interview Prep - Full Stack (Entry Level) Page 30 12. Common Gotchas & Bugs ",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 51,
+      "category": "conceptual",
+      "answerable": true,
+      "question": "What's the difference between CORS and CSRF?",
+      "latency_s": 0.674,
+      "top1_score": 0.687,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "often still reaches the server. Fix in Express: use the cors middleware package, configuring which origins are allowed. const cors = require('cors'); app.use(co",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 52,
+      "category": "cross_doc",
+      "answerable": true,
+      "question": "What does a middleware's next() do in Express?",
+      "latency_s": 0.673,
+      "top1_score": 0.6503,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "ler (or between other middleware). Its signature is (req, res, next). Middleware can: run any code, modify req/res (e.g. attach a parsed body, a decoded user fr",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 53,
+      "category": "lookup",
+      "answerable": true,
+      "question": "Why shouldn't passwords be hashed with plain SHA-256?",
+      "latency_s": 0.666,
+      "top1_score": 0.6059,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "hat even if the database is compromised, attackers don't get plaintext passwords (which users often reuse across sites). bcrypt (or scrypt/argon2) is the standa",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 54,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What is backpressure in a stream?",
+      "latency_s": 0.664,
+      "top1_score": 0.5404,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "t sooner. The .pipe() method connects a readable stream directly to a writable one, handling backpressure automatically. const fs = require('fs'); app.get('/vid",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 55,
+      "category": "paraphrase",
+      "answerable": true,
+      "question": "Why does fs.readFileSync in a route handler slow down unrelated requests?",
+      "latency_s": 0.685,
+      "top1_score": 0.7036,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "vironment Node.js & Express.js Interview Prep - Full Stack (Entry Level) Page 31 configuration, not shipped in the repo. Q: Why did my synchronous fs.readFileSy",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 56,
+      "category": "lookup",
+      "answerable": true,
+      "question": "What's the difference between PUT and PATCH?",
+      "latency_s": 0.679,
+      "top1_score": 0.5255,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "est (often POST) so the server can detect and safely ignore accidental duplicate submissions, e.g. from a network retry. Q: What is the difference between PUT a",
+      "first_doc_rank": 1,
+      "first_hit_rank": 1
+    },
+    {
+      "id": 57,
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "How does Django's ORM handle database migrations?",
+      "latency_s": 0.676,
+      "top1_score": 0.4973,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "t has no concept of INCREMENTAL, VERSIONED changes — it won't safely alter an EXISTING table if you change a model (e.g. add a column) without losing data, and ",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 58,
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "How do I set up GraphQL subscriptions with Apollo Server?",
+      "latency_s": 0.665,
+      "top1_score": 0.3451,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "splay, without a full page reload. A: Tests the modern App Router form-handling pattern, a realistic 2026 interview ask. // app/actions.ts 'use server'; export ",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 59,
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "How do I write a Terraform module that provisions a database?",
+      "latency_s": 0.687,
+      "top1_score": 0.327,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "od calls instead of writing raw query strings, and typically handles connection pooling, migrations, and query building. Common choices in Node: Prisma and Sequ",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 60,
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "How does Svelte compile reactive statements?",
+      "latency_s": 0.671,
+      "top1_score": 0.2724,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "e the return statement (or early return) for larger blocks. 2) Ternary operator condition ? <A /> : <B /> inline in JSX. 3) Logical && operator: condition && <A",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 61,
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "How do I authenticate WebSocket connections with Socket.IO?",
+      "latency_s": 0.674,
+      "top1_score": 0.4956,
+      "top_sources": [
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "her attaches the decoded payload (e.g. the user id) to req and calls next(), or responds with 401 if verification fails. Node.js & Express.js Interview Prep - F",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 62,
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "How does TypeScript's satisfies operator work?",
+      "latency_s": 0.696,
+      "top1_score": 0.2512,
+      "top_sources": [
+        "React_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "React_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf",
+        "CSS_&_CSS_Tailwind_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "e the return statement (or early return) for larger blocks. 2) Ternary operator condition ? <A /> : <B /> inline in JSX. 3) Logical && operator: condition && <A",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 63,
+      "category": "near_miss_unanswerable",
+      "answerable": false,
+      "question": "How many Gunicorn workers per CPU core are recommended?",
+      "latency_s": 0.707,
+      "top1_score": 0.4971,
+      "top_sources": [
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Node_Express_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf",
+        "Flask_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "PS termination, serves static files efficiently, and load-balances across multiple Gunicorn worker processes/instances). # Running a Flask app in production wit",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    },
+    {
+      "id": 64,
+      "category": "near_miss_unanswerable",
+      "answerable": false,
+      "question": "What is the default port Next.js runs on in development?",
+      "latency_s": 0.687,
+      "top1_score": 0.5276,
+      "top_sources": [
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf",
+        "NextJS_Interview_Prep_QA.pdf"
+      ],
+      "top1_text": "NEXT_PUBLIC_, since doing so ships it in plain text to every visitor's browser. # .env.local DATABASE_URL=postgres://... # server-only, safe for secrets NEXT_PU",
+      "first_doc_rank": null,
+      "first_hit_rank": null
+    }
+  ]
+}
