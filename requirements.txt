@@ -5,3 +5,4 @@ anthropic
 pypdf
 docx2txt
 gunicorn
+Flask-Limiter
