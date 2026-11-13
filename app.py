@@ -185,19 +185,5 @@ def query():
 
     return jsonify(result)
 
-
-# TEMPORARY: delete this route after you've verified the IP detection on Render
-# (skip it if you already did).
-@app.route("/_ip")
-def _ip():
-    return jsonify({
-        "seen_by_limiter": client_ip(),
-        "cf_connecting_ip": request.headers.get("CF-Connecting-IP"),
-        "true_client_ip": request.headers.get("True-Client-IP"),
-        "x_forwarded_for": request.headers.get("X-Forwarded-For"),
-        "remote_addr": request.remote_addr,
-    })
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
