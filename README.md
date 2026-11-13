@@ -80,6 +80,8 @@ Open `http://localhost:5000`.
 
 ## Design decisions worth knowing about
 
+- **Per-visitor isolation.** Every stored chunk is labelled with an anonymous visitor ID (kept in a signed cookie), and search, listing and deletion are filtered by it. Shared sample documents are visible to everyone but can't be deleted through the web app.
+- **Rate limiting.** Per-IP limits on queries and uploads protect the API credits behind the demo.
 - **Uploaded files aren't stored permanently.** Files are processed in a temp location just long enough to extract text, then discarded — no dependency on persistent local disk.
 - **Embeddings are API-based, not local.** Avoids the RAM overhead of running an embedding model on a free-tier host.
 - **Chunk size (800 chars) / overlap (120 chars)** are tunable in `document_loader.py`.
@@ -87,5 +89,5 @@ Open `http://localhost:5000`.
 ## Known limitations
 
 - PDF extraction has no OCR — scanned/image-only PDFs won't extract text.
-- Single shared knowledge base — no user accounts or multi-tenancy.
+- No user accounts: each visitor gets an anonymous, cookie-based private workspace. Clearing cookies or switching devices starts a fresh one.
 - No conversation history — each question is answered independently
