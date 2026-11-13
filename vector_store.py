@@ -5,10 +5,19 @@ Connects to Chroma Cloud and handles adding, querying, listing, and
 deleting document chunks (as vectors).
 """
 
+import os
 import uuid
 import chromadb
 from config import CHROMA_TENANT, CHROMA_DATABASE, CHROMA_API_KEY
 from embeddings import embed_documents, embed_query
+
+# Defaults to the live collection. Set CHROMA_COLLECTION in the environment
+# (e.g. eval_knowledge_base) to point at a separate collection for testing.
+COLLECTION_NAME = os.environ.get("CHROMA_COLLECTION", "knowledge_base")
+
+# Chroma Cloud allows at most 300 records per write and returns at most
+# 300 records per request, so writes and reads are done in pages of 300.
+CHROMA_PAGE_SIZE = 300
 
 client = chromadb.CloudClient(
     tenant=CHROMA_TENANT,
@@ -17,7 +26,7 @@ client = chromadb.CloudClient(
 )
 
 collection = client.get_or_create_collection(
-    name="knowledge_base",
+    name=COLLECTION_NAME,
     metadata={"hnsw:space": "cosine"},
 )
 
@@ -30,15 +39,17 @@ def add_chunks(doc_id, source_name, chunks):
 
     metadatas = [
         {"source": source_name, "doc_id": doc_id}
-        for i in range(len(chunks))
+        for _ in chunks
     ]
 
-    collection.add(
-        ids=ids,
-        embeddings=vectors,
-        documents=chunks,
-        metadatas=metadatas,
-    )
+    for start in range(0, len(chunks), CHROMA_PAGE_SIZE):
+        end = start + CHROMA_PAGE_SIZE
+        collection.add(
+            ids=ids[start:end],
+            embeddings=vectors[start:end],
+            documents=chunks[start:end],
+            metadatas=metadatas[start:end],
+        )
 
     return len(chunks)
 
@@ -69,17 +80,30 @@ def query(question, top_k=5):
 
 def list_documents():
     """Return a list of unique source documents currently indexed."""
-    all_items = collection.get()
-    metadatas = all_items["metadatas"]
-
     seen = {}
-    for meta in metadatas:
-        doc_id = meta["doc_id"]
+    offset = 0
 
-        if doc_id not in seen:
-            seen[doc_id] = {"doc_id": doc_id, "source": meta["source"], "chunks": 0}
+    while True:
+        batch = collection.get(
+            limit=CHROMA_PAGE_SIZE,
+            offset=offset,
+            include=["metadatas"],
+        )
+        metadatas = batch["metadatas"]
+        if not metadatas:
+            break
 
-        seen[doc_id]["chunks"] += 1
+        for meta in metadatas:
+            doc_id = meta["doc_id"]
+
+            if doc_id not in seen:
+                seen[doc_id] = {"doc_id": doc_id, "source": meta["source"], "chunks": 0}
+
+            seen[doc_id]["chunks"] += 1
+
+        if len(metadatas) < CHROMA_PAGE_SIZE:
+            break
+        offset += CHROMA_PAGE_SIZE
 
     return list(seen.values())
 
@@ -90,8 +114,7 @@ def delete_document(doc_id):
 
 
 if __name__ == "__main__":
-    # --- ONE-TIME CLEANUP: remove the two duplicate test docs from earlier runs ---
-    
+    print(f"Using collection: {COLLECTION_NAME}")
 
     test_doc_id = uuid.uuid4().hex
     test_chunks = [
@@ -108,3 +131,7 @@ if __name__ == "__main__":
         print(f"{hit['score']:.3f} — {hit['source']} — {hit['text']}")
 
     print(list_documents())
+
+    # Clean up so test data doesn't pile up in the collection
+    delete_document(test_doc_id)
+    print("Test document deleted.")
