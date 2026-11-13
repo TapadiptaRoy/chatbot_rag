@@ -13,6 +13,9 @@ async function loadDocuments() {
   const res = await fetch('/documents');
   const docs = await res.json();
 
+  // If the request was rejected (e.g. rate limited), keep the current list.
+  if (!res.ok || !Array.isArray(docs)) return;
+
   docCount.textContent = docs.length;
 
   if (docs.length === 0) {
@@ -24,10 +27,11 @@ async function loadDocuments() {
   docs.forEach(doc => {
     const li = document.createElement('li');
     li.className = 'doc-item';
+    // Shared sample documents can't be removed; a visitor's own uploads can.
     li.innerHTML = `
       <span class="doc-name" title="${escapeHtml(doc.source)}">${escapeHtml(doc.source)}</span>
-      <span class="doc-meta">${doc.chunks}c</span>
-      <button class="doc-remove" title="Remove" data-id="${doc.doc_id}">&times;</button>
+      <span class="doc-meta">${doc.public ? 'sample' : doc.chunks + 'c'}</span>
+      ${doc.public ? '' : `<button class="doc-remove" title="Remove" data-id="${doc.doc_id}">&times;</button>`}
     `;
     docList.appendChild(li);
   });

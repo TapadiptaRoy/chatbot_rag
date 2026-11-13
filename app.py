@@ -2,13 +2,15 @@
 app.py
 ------
 Flask web app tying together document_loader, embeddings, vector_store,
-and rag into a browser-usable interface.
+and rag into a browser-usable interface. Each visitor gets an anonymous,
+private workspace (via a signed cookie); sample documents are shared.
 """
 
 import os
 import uuid
 import tempfile
-from flask import Flask, request, jsonify, render_template
+from datetime import timedelta
+from flask import Flask, request, jsonify, render_template, session
 from flask_limiter import Limiter
 from werkzeug.utils import secure_filename
 
@@ -20,9 +22,35 @@ ALLOWED_EXTENSIONS = {".pdf", ".docx", ".txt", ".md"}
 MAX_UPLOAD_MB = 10
 MAX_CHUNKS_PER_DOC = 400      # roughly 90 pages of text; caps embedding cost per upload
 MAX_QUESTION_CHARS = 1000     # caps the size of each Claude request
+MAX_DOCS_PER_VISITOR = 5      # caps how much one visitor can store
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_MB * 1024 * 1024
+
+# The secret key signs the visitor cookie. Set SECRET_KEY in your environment
+# (locally in .env, and on Render). Without it a random key is generated on
+# every start, which means every visitor loses access to their uploads
+# whenever the app restarts or redeploys.
+app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(32)
+if not os.environ.get("SECRET_KEY"):
+    app.logger.warning("SECRET_KEY is not set: visitor sessions will reset on every restart.")
+
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE="Lax",
+    SESSION_COOKIE_SECURE=os.environ.get("COOKIE_SECURE") == "1",   # set COOKIE_SECURE=1 on Render (HTTPS)
+    PERMANENT_SESSION_LIFETIME=timedelta(days=7),
+)
+
+
+def current_owner():
+    """Anonymous per-visitor ID, created on first use and kept in a signed cookie."""
+    owner = session.get("owner")
+    if not owner:
+        owner = uuid.uuid4().hex
+        session["owner"] = owner
+        session.permanent = True
+    return owner
 
 
 def client_ip():
@@ -75,6 +103,8 @@ def index():
 @app.route("/upload", methods=["POST"])
 @limiter.limit("4 per hour;12 per day")
 def upload():
+    owner = current_owner()
+
     if "file" not in request.files:
         return jsonify({"error": "No file provided"}), 400
 
@@ -84,6 +114,10 @@ def upload():
 
     if not _allowed(file.filename):
         return jsonify({"error": f"Unsupported file type. Allowed: {', '.join(sorted(ALLOWED_EXTENSIONS))}"}), 400
+
+    mine = [d for d in vector_store.list_documents(owner) if not d["public"]]
+    if len(mine) >= MAX_DOCS_PER_VISITOR:
+        return jsonify({"error": f"You can keep up to {MAX_DOCS_PER_VISITOR} documents. Remove one to add another."}), 400
 
     filename = secure_filename(file.filename)
     doc_id = uuid.uuid4().hex[:12]
@@ -104,7 +138,7 @@ def upload():
         if len(chunks) > MAX_CHUNKS_PER_DOC:
             return jsonify({"error": f"This document is too long for the demo (limit: about {MAX_CHUNKS_PER_DOC} chunks, roughly 90 pages of text)."}), 400
 
-        count = vector_store.add_chunks(doc_id, filename, chunks)
+        count = vector_store.add_chunks(doc_id, filename, chunks, owner=owner)
     except Exception:
         app.logger.exception("Failed to process upload %s", filename)
         return jsonify({"error": "Could not process this file."}), 500
@@ -121,13 +155,13 @@ def upload():
 @app.route("/documents", methods=["GET"])
 @limiter.limit("60 per minute")
 def documents():
-    return jsonify(vector_store.list_documents())
+    return jsonify(vector_store.list_documents(owner=current_owner()))
 
 
 @app.route("/documents/<doc_id>/delete", methods=["POST"])
 @limiter.limit("20 per hour")
 def delete_document(doc_id):
-    vector_store.delete_document(doc_id)
+    vector_store.delete_document(doc_id, owner=current_owner())
     return jsonify({"status": "deleted", "doc_id": doc_id})
 
 
@@ -144,7 +178,7 @@ def query():
         return jsonify({"error": f"Question too long (limit {MAX_QUESTION_CHARS} characters)."}), 400
 
     try:
-        result = rag.answer_question(question)
+        result = rag.answer_question(question, owner=current_owner())
     except Exception:
         app.logger.exception("Query failed")
         return jsonify({"error": "The answer service is temporarily unavailable. Please try again."}), 502
@@ -152,7 +186,8 @@ def query():
     return jsonify(result)
 
 
-# TEMPORARY: delete this route after you've verified the IP detection on Render.
+# TEMPORARY: delete this route after you've verified the IP detection on Render
+# (skip it if you already did).
 @app.route("/_ip")
 def _ip():
     return jsonify({

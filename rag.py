@@ -1,4 +1,6 @@
 """
+rag.py
+------
 Ties retrieval (vector_store) together with generation (Claude) to answer
 questions grounded in the user's personal knowledge base.
 """
@@ -30,8 +32,8 @@ def build_context_block(hits):
     return "\n\n".join(blocks)
 
 
-def answer_question(question, top_k=TOP_K):
-    hits = vector_store.query(question, top_k=top_k)
+def answer_question(question, top_k=TOP_K, owner=None):
+    hits = vector_store.query(question, top_k=top_k, owner=owner)
 
     if not hits:
         return {

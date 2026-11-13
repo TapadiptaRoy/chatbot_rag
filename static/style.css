@@ -295,3 +295,5 @@ body {
   .drawer { border-right: none; border-bottom: 1px solid rgba(241,233,216,0.08); }
   .page-header, .conversation, .query-form { padding-left: 20px; padding-right: 20px; }
 }
+
+.privacy-note { margin: 0 0 10px; font-size: 0.75rem; color: rgba(241, 233, 216, 0.5); }
